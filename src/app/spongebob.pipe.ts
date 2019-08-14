@@ -4,9 +4,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SpongebobPipe implements PipeTransform {
   transform(value: string): string {
     let array = value.split("");
+    let isCap = true;
     for (let i = 0; i < array.length; i++){
         let char = array[i];
-        let isCap = true;
 
         if(char === " "){
             return;
@@ -24,3 +24,5 @@ export class SpongebobPipe implements PipeTransform {
 }
 
 }
+
+// value split map val
