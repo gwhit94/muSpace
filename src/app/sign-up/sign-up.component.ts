@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrationService } from '../registration.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -6,8 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+  username: string;
+  password: string;
+  passwordRepeat: string;
+  email: string;
 
-  constructor() { }
+  constructor(private registrationService: RegistrationService) { }
+
+  register(){
+    if (this.password != this.passwordRepeat){
+      console.log("Passwords do not match");
+      return;
+    }
+    this.registrationService.signUpUser(this.username, this.password, this.email);
+  }
 
   ngOnInit() {
   }

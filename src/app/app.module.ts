@@ -43,9 +43,13 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { PlaylistComponent } from './playlist/playlist.component';
 import { ErrorComponent } from './error/error.component';
 import { SpongebobPipe } from './spongebob.pipe';
+import { RegistrationService } from './registration.service'
+import { CanActivateRouteGuard } from './auth-guard.service';
+
 
 @NgModule({
   declarations: [
@@ -97,7 +101,7 @@ import { SpongebobPipe } from './spongebob.pipe';
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [RegistrationService, CanActivateRouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

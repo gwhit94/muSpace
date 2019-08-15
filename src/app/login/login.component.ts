@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       console.log(this.text);
       return;
     }
-    this.registrationService.loginUser(this.username);
+    this.registrationService.loginUser(this.username, this.password);
   }
 
 }
