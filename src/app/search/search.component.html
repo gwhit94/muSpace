@@ -1,7 +1,22 @@
+
 <div class="inputField">
     <input id="searchBar" type="text" placeholder="Search">
 </div>
-<br>
-<!-- <div class="outputField" *ngFor = "let id of searchOutput">
-  <img [src]="id.cover?">
-</div> -->
+
+<div class = "body">
+  <div class="outputField" *ngFor = "let song of searchOutput">
+    <div>
+        <p>Song:    {{song.title}}</p>
+        <p>Artist:  {{song.artist.name}}</p>
+        <p>Album:   {{song.album.title}}</p>
+
+        <audio controls mat-fab color="primary">Play Sample
+          <source [src]="song.preview" type="audio/mpeg">
+          Your browser does not support the audio tag.
+        </audio>
+
+      </div>
+    
+    <img class="albumCover" [src]="song.album.cover">
+  </div>
+</div>

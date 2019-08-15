@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 // import { map } from 'rxjs/operators'
 
@@ -11,11 +12,10 @@ export class deezerService {
   constructor(private http: HttpClient) { }
 
 searchDeezer(val: any){
-  console.log("hey this is working", this.http.get(`https://api.deezer.com/search?q=${val}`))
-  return this.http.get(`https://api.deezer.com/search?q=${val}`)
-  // .pipe(
-  //   map(res => res["data"])
-  
-  // )
-}
+
+  return this.http.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${val}`)
+  .pipe(
+    map(res => res["data"])
+  )
+} 
 }
