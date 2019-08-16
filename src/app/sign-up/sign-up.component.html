@@ -1,35 +1,37 @@
-<!-- <form [formGroup="signupForm"]> -->
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <mat-card class="card">
     <mat-card-title> Sign Up For an Account </mat-card-title>
    
     <mat-form-field>
         <mat-label>Username</mat-label>
-        <input [(ngModel)]="username" matInput required placeholder="Username">
-        <!-- <mat-error *ngIf="hasError('username', 'required')">Name is required</mat-error> -->
+        <input  formControlName ="username" matInput placeholder="Username">
+        <!-- <mat-error *ngIf="username.getErrorMessage.required">Username is required</mat-error> -->
     </mat-form-field>
    
     <mat-form-field>
         <mat-label>Password</mat-label>
-        <input  [(ngModel)]="password" type="password" matInput required placeholder="Password">
+        <input formControlName ="password" type="password" matInput placeholder="Password">
         <mat-hint>Password must be at least 8 characters</mat-hint>
+        <!-- <mat-error *ngIf="password.getErrorMessage.required">Password is required</mat-error> -->
     </mat-form-field>
    
     <mat-form-field>
         <mat-label>Repeat Password</mat-label>
-        <input [(ngModel)]="passwordRepeat" type="password" matInput required placeholder="Repeat Password">
+        <input formControlName ="passwordRepeat" type="password" matInput  placeholder="Repeat Password">
     </mat-form-field>
    
     <mat-form-field>
         <mat-label>E-mail address</mat-label>
-        <input [(ngModel)]="email" type="email" matInput required placeholder="E-mail address">
+        <input formControlName ="email" type="email" matInput placeholder="E-mail address">
     </mat-form-field>
-<!-- </form> -->
-    <!-- <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Select your Birthday">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field> -->
-      <div class="buttodiv">
-      <button mat-fab class="buttoncenter" color="primary" (click)="register()">Register</button>
+    <mat-form-field>
+        <mat-label>Confirm E-mail address</mat-label>
+        <input formControlName ="emailConfirm" type="email" matInput placeholder="Confirm E-mail address">
+    </mat-form-field>
+    
+    <div class="buttodiv">
+      <button type="submit" class="buttoncenter" color="primary" (click)="register()">Register</button>
      </div>
+   
 </mat-card>
+</form>
