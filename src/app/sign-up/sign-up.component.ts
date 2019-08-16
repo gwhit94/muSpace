@@ -11,6 +11,7 @@ export class SignUpComponent implements OnInit {
   password: string;
   passwordRepeat: string;
   email: string;
+  nickname: string;
 
   constructor(private registrationService: RegistrationService) { }
 
@@ -19,7 +20,7 @@ export class SignUpComponent implements OnInit {
       console.log("Passwords do not match");
       return;
     }
-    this.registrationService.signUpUser(this.username, this.password, this.email);
+    this.registrationService.signUpUser(this.username, this.password, this.email, this.nickname);
   }
 
   ngOnInit() {

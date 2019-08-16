@@ -22,11 +22,12 @@ export class RegistrationService {
   // logoutUser(){
 
   // }
-  // u = username, p = password, e = email
-  signUpUser(u, p, e){
+  // u = username, p = password, e = email n = nickname
+  signUpUser(u, p, e, n){
     localStorage.setItem('username', u);
     localStorage.setItem('password', p);
     localStorage.setItem('email', e);
+    localStorage.setItem('nickname', e);
     console.log("user registered!");
     this.router.navigate(["login"]);
   }
