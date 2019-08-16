@@ -21,6 +21,7 @@ export class SignUpComponent implements OnInit {
       return;
     }
     this.registrationService.signUpUser(this.username, this.password, this.email, this.nickname);
+    
   }
 
   ngOnInit() {
