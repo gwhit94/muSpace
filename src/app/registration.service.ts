@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from './interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,13 @@ export class RegistrationService {
     this.router.navigate(['music-player']);
   }
 
-  // logoutUser(){
-
-  // }
+  logoutUser(){
+    localStorage.removeItem('username');
+    localStorage.removeItem('password');
+    localStorage.removeItem('email');
+    this.authenticated = false;
+    console.log("user logged out");
+  }
   // u = username, p = password, e = email
   signUpUser(u, p, e){
     localStorage.setItem('username', u);
