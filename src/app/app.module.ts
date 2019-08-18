@@ -50,8 +50,11 @@ import { SpongebobPipe } from './spongebob.pipe';
 import { RegistrationService } from './registration.service'
 import { CanActivateRouteGuard } from './auth-guard.service';
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> advancedSearch
 @NgModule({
   declarations: [
     AppComponent,

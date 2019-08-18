@@ -22,6 +22,11 @@ export class RegistrationService {
     this.authenticated = true;
     console.log(JSON.parse(localStorage.getItem("users")));
     console.log(`Logged in User: ${username}!`);
+
+    let users = JSON.parse(localStorage.getItem("users"));
+    let id = users.find(users => users.username === username).userId;
+    console.log(id);
+    localStorage.setItem('currentId', id.toString());
     this.router.navigate(['music-player']);
   }
 
@@ -68,7 +73,6 @@ export class RegistrationService {
         }
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
-        localStorage.setItem('nextId', nextId.toString());
         this.playlistService.addUserId(nextId);
 
     };
