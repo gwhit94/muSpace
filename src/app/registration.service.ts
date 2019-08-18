@@ -34,7 +34,7 @@ export class RegistrationService {
     //   console.log("no such user registered!");
     //   return;
     // }
-    
+
     // password check
     if (!userToLogin || userToLogin.password != password){
       console.log("Username or Password is incorrect. Please try again.");
@@ -45,12 +45,10 @@ export class RegistrationService {
     console.log(`Logged in User: ${username}!`);
     this.router.navigate(['music-player']);
   }
+  // // Need to setup a logged in user state to be cleared on logout and provide nickname etc. when asked
 
   logoutUser(){
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
-    localStorage.removeItem('email');
-    localStorage.removeItem('nickname');
+
     this.authenticated = false;
     console.log("user logged out");
   }
