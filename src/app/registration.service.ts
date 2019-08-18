@@ -43,6 +43,11 @@ export class RegistrationService {
     this.authenticated = true;
     console.log(users);
     console.log(`Logged in User: ${username}!`);
+
+    let users = JSON.parse(localStorage.getItem("users"));
+    let id = users.find(users => users.username === username).userId;
+    console.log(id);
+    localStorage.setItem('currentId', id.toString());
     this.router.navigate(['music-player']);
   }
   // // Need to setup a logged in user state to be cleared on logout and provide nickname etc. when asked

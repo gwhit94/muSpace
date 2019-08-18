@@ -1,1 +1,21 @@
-<p>playlist works!</p>
+<!-- 
+<audio controls>
+    <source src="../../assets/audio/HipHop.mp3" type="audio/ogg">
+    <source src="" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>  -->
+
+  <div class="playlistSongs" *ngFor = "let song of songs">
+    <div style="margin-left: 10px;">
+      <div class = subContainer>
+        <p>Song:    {{ song.title }}</p>
+        <p>Artist:  {{ song.artist }}</p>
+        <p>Album:   {{ song.album }}</p> 
+      </div>
+
+        <audio controls mat-fab color="primary" style="margin-bottom: 5px;">Play Sample
+          <source [src]="song.preview" type="audio/mpeg">
+          Your browser does not support the audio tag.
+        </audio>
+
+      </div>
