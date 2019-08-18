@@ -11,6 +11,7 @@ export class deezerService {
   
   constructor(private http: HttpClient) { }
 
+
 searchDeezer(val: any){
 
   return this.http.get(`https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${val}`)

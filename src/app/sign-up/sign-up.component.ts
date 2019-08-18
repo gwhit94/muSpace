@@ -8,6 +8,7 @@ import { mustMatch} from '../Helper/Match.validator'
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
+
   // username: string;
   // password: string;
   // passwordRepeat: string;
@@ -16,6 +17,7 @@ export class SignUpComponent implements OnInit {
   signupForm: FormGroup;
   submitted = false;
 
+
   constructor(private registrationService: RegistrationService, private formBuilder: FormBuilder) { }
 
   register(){
@@ -23,6 +25,7 @@ export class SignUpComponent implements OnInit {
       console.log("Fix your Errors Bitch");
       return;
     }
+
 
 
     this.registrationService.signUpUser(this.username, this.password, this.email,this.nickname);
@@ -41,6 +44,8 @@ export class SignUpComponent implements OnInit {
 
   get password(){
     return this.signupForm.get('password')
+
+
   }
 
   get passwordRepeat(){

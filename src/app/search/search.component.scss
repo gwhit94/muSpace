@@ -11,7 +11,7 @@
     flex-direction: row;
     margin: 10px;
     background-color: rgba(233,30,99,.5);
-    max-width: calc(25% - 20px);
+    max-width: calc(Math(100% / 3) - 20px);
     border-radius: 20px;
     align-items: center;
 }
@@ -28,3 +28,11 @@
     padding: 5px;
     
 }
+
+.advancedSearch{height: 800px; width: 20%; background-color: #c2185b; }
+
+.advanceSearchInput{margin-left: calc(50% - 80px); margin-top: 50px; text-align: center;}
+
+.advanceSearchButton{margin-top: 50px; margin-left: calc(50% - 31px); }
+
+.advanceSearchLink{font-size: 9.5px; margin-left: 55px;}

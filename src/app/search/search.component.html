@@ -1,22 +1,37 @@
 
 <div class="inputField">
-    <input id="searchBar" type="text" placeholder="Search">
+    <input id="searchBar" type="text" placeholder="Search"> <br> <a class= "advanceSearchLink" (click)="toggle()">Advanced Search</a>
 </div>
 
 <div class = "body">
   <div class="outputField" *ngFor = "let song of searchOutput">
-    <div>
+    <div style="margin-left: 10px;">
+        <button (click)="favorite()" style="margin-left: 5px; margin-top: 5px;">Fav</button>
+        <button style="margin-left: 5px; margin-top: 5px;">Add to Playlist </button>
         <p>Song:    {{song.title}}</p>
         <p>Artist:  {{song.artist.name}}</p>
         <p>Album:   {{song.album.title}}</p>
 
-        <audio controls mat-fab color="primary">Play Sample
+        <audio controls mat-fab color="primary" style="margin-bottom: 5px;">Play Sample
           <source [src]="song.preview" type="audio/mpeg">
           Your browser does not support the audio tag.
         </audio>
 
       </div>
-    
+  
+      
     <img class="albumCover" [src]="song.album.cover">
-  </div>
+
+  </div>  
+</div>
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="advancedSearch">
+
+<input class="advanceSearchInput" type="text" placeholder="Artist">
+
+<input class="advanceSearchInput" type="text" placeholder="Song Title">
+
+<input class="advanceSearchInput" type="text" placeholder="Album">
+
+<button class="advanceSearchButton">Search!</button>
+
 </div>
