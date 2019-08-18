@@ -23,12 +23,13 @@ export class RegistrationService {
 
   // }
   // u = username, p = password, e = email
-  signUpUser(u, p, e){
+  signUpUser(u, p, e, n){
     localStorage.setItem('username', u);
     localStorage.setItem('password', p);
     localStorage.setItem('email', e);
-    console.log("user registered!");
-    this.router.navigate(["login"]);
+    localStorage.setItem( 'nickname', n);
+    console.log( 'user registered!' );
+    this.router.navigate(['login']);
   }
 
   isAuth(){
