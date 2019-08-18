@@ -1,16 +1,14 @@
-
-<div class="inputField">
-    <input id="searchBar" type="text" placeholder="Search"> <br> <a class= "advanceSearchLink" (click)="toggle()">Advanced Search</a>
-</div>
-
 <div class = "body">
-  <div class="outputField" *ngFor = "let song of searchOutput">
+  <div class="outputField" *ngFor = "let song of searchOutput" ng-controller="myCtrl">
     <div style="margin-left: 10px;">
-        <button (click)="favorite()" style="margin-left: 5px; margin-top: 5px;">Fav</button>
-        <button style="margin-left: 5px; margin-top: 5px;">Add to Playlist </button>
+      <div class = subContainer>
+
+    - <button (click)="addSong(song.id,song.title, song.artist.name,song.album.title,song.preview)">add to favorites</button>
+
         <p>Song:    {{song.title}}</p>
         <p>Artist:  {{song.artist.name}}</p>
-        <p>Album:   {{song.album.title}}</p>
+        <p>Album:   {{song.album.title}}</p> 
+      </div>
 
         <audio controls mat-fab color="primary" style="margin-bottom: 5px;">Play Sample
           <source [src]="song.preview" type="audio/mpeg">

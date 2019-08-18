@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="sticky">
   <p class="title nav">muSpace</p>
   <div class="nav">
     <a routerLink="" class="link">Login</a>
@@ -9,9 +9,11 @@
   <div class="nav">
     <a routerLink="/playlists" class="link">Playlists</a>
   </div>
-  <div class="nav">
-      <a routerLink="/search" class="link">Search</a>
-    </div>
+
+    <div class="searchInput" routerLink="/search">
+      <input id="searchBar" type="text" placeholder="Search" >
+      <a class= "advanceSearchLink" (click)="isOpen = !isOpen" >Advanced Search</a>
+  </div>
 </mat-toolbar>
 
 
