@@ -51,6 +51,7 @@ import { RegistrationService } from './registration.service'
 import { CanActivateRouteGuard } from './auth-guard.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { CanActivateRouteGuard } from './auth-guard.service';
     MusicPlayerComponent,
     PlaylistComponent,
     ErrorComponent,
-    SpongebobPipe
+    SpongebobPipe,
+  
   ],
   imports: [
     BrowserModule,

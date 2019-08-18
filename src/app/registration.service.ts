@@ -10,7 +10,7 @@ import { PlaylistService } from './playlist.service';
 })
 export class RegistrationService {
   private authenticated: boolean = false;
-  
+
 
   constructor(private router: Router, private playlistService: PlaylistService) { }
 
@@ -25,23 +25,29 @@ export class RegistrationService {
     this.router.navigate(['music-player']);
   }
 
-  logoutUser(){
-    localStorage.removeItem('username');
-    localStorage.removeItem('password');
-    localStorage.removeItem('email');
-    localStorage.removeItem('nickname');
-    this.authenticated = false;
-    console.log("user logged out");
-  }
+
+  // logoutUser(){
+
+  // }
+  // u = username, p = password, e = email
+  // signUpUser(u, p, e, n){
+  //   localStorage.setItem('username', u);
+  //   localStorage.setItem('password', p);
+  //   localStorage.setItem('email', e);
+  //   localStorage.setItem( 'nickname', n);
+  //   console.log( 'user registered!' );
+  //   this.router.navigate(['login']);
+
+  // }
   // u = username, p = password, e = email, n = nickname
   signUpUser(u, p, e, n){
     console.log("user registered!");
- 
+
 
     if (localStorage.getItem("users") === null){
       let newUser = [{
         username: "username",
-        userId: 1, 
+        userId: 1,
         password: "password",
         email: "username@gmail.com",
         nickname: "User"
@@ -55,7 +61,7 @@ export class RegistrationService {
     nextId++
     let newUser = {
           username: u,
-          userId: nextId, 
+          userId: nextId,
           password: p,
           email: e,
           nickname: n,
