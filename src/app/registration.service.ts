@@ -76,10 +76,15 @@ export class RegistrationService {
     if (nameTaken){
       console.log(`This username "${u}" has already been taken!`);
       return;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ffbd3f7c080e34f322e2e2c21fbc990e06995a5d
     }
     console.log(`Registed username "${u}" !`);
 
     // increments nextId then creates new user
+<<<<<<< HEAD
     nextId++
     let newUser = {
       username: u,
@@ -93,6 +98,8 @@ export class RegistrationService {
     localStorage.setItem('nextId', nextId.toString());
     this.playlistService.addUserId(nextId);
     this.router.navigate(['login']);
+=======
+>>>>>>> ffbd3f7c080e34f322e2e2c21fbc990e06995a5d
 
     };
 
