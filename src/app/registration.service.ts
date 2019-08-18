@@ -43,11 +43,7 @@ export class RegistrationService {
     this.authenticated = true;
     console.log(users);
     console.log(`Logged in User: ${username}!`);
-
-    let id = users.find(users => users.username === username).userId;
-    console.log(id);
-    localStorage.setItem('currentId', id.toString());
-    this.router.navigate(['music-player']);
+    this.router.navigate(['playlists']);
   }
   // // Need to setup a logged in user state to be cleared on logout and provide nickname etc. when asked
 
@@ -61,6 +57,7 @@ export class RegistrationService {
   signUpUser(u, p, e, n){
     let users = JSON.parse(localStorage.getItem("users"));
     let nextId = parseInt(localStorage.getItem("nextId"));
+    console.log(u, p, e, n);
 
     // exit sign up if username taken
     let nameTaken: boolean;
@@ -75,11 +72,23 @@ export class RegistrationService {
     if (nameTaken){
       console.log(`This username "${u}" has already been taken!`);
       return;
-
     }
     console.log(`Registed username "${u}" !`);
 
     // increments nextId then creates new user
+    nextId++
+    let newUser = {
+      username: u,
+      userId: nextId, 
+      password: p,
+      email: e,
+      nickname: n,
+    }
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem('nextId', nextId.toString());
+    this.playlistService.addUserId(nextId);
+    this.router.navigate(['login']);
 
     };
 

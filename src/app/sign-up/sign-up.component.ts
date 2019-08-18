@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
 
 
 
-    this.registrationService.signUpUser(this.username, this.password, this.email,this.nickname);
+    this.registrationService.signUpUser(this.username.value, this.password.value, this.email.value, this.nickname.value);
   }
   get username(){
     return this.signupForm.get('username')
