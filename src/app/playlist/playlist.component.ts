@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { PlaylistService } from '../playlist.service';
+import { deezerService } from '../deezer.service';
+import { Song } from '../interfaces/song.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-playlist',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistComponent implements OnInit {
 
-  constructor() { }
+  constructor(private PlaylistService : PlaylistService,
+              private deezerService: deezerService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { 
+    
+    let playlists = this.PlaylistService.getPlaylists()
+    console.log(playlists);
+    let songs: Array<{}> = playlists.favorites;
+    console.log(songs);
+
+    
+    
+
+    }
 
 }
+

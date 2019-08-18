@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { deezerService } from '../deezer.service';
+import { PlaylistService } from '../playlist.service';
 import { Observable, interval, fromEvent } from 'rxjs';
 import { map, debounceTime, filter, distinctUntilChanged } from 'rxjs/operators';
 import { getMatIconNoHttpProviderError } from '@angular/material';
@@ -12,7 +13,9 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { AbsoluteSourceSpan } from '@angular/compiler';
+import { AppComponent } from '../app.component';
+
+
 
 @Component({
   selector: 'app-search',
@@ -43,9 +46,11 @@ import { AbsoluteSourceSpan } from '@angular/compiler';
 export class SearchComponent implements OnInit {
   
   searchOutput: any;
-  
+  newPlaylist: string = "";
 
-  constructor(private deezerService : deezerService) {
+  constructor(private deezerService : deezerService,
+              private playlistService : PlaylistService        
+    ) {
     
   }
 
@@ -53,6 +58,8 @@ export class SearchComponent implements OnInit {
 
 
   ngOnInit() {
+    let playlists: Array<string> = this.playlistService.getPlaylists()
+    console.log(playlists);
     const searchBar = document.getElementById("searchBar");
     const inputObs = fromEvent(searchBar, "keyup").pipe(
       map(e => e.target['value']),
@@ -73,4 +80,9 @@ export class SearchComponent implements OnInit {
 
   toggle() {
     this.isOpen = !this.isOpen;
-}}
+  }
+
+  addSong(id,title, artist,album,preview) {
+    this.playlistService.addSong(id,title, artist,album,preview);
+  }
+}
