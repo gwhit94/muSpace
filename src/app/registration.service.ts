@@ -44,7 +44,6 @@ export class RegistrationService {
     console.log(users);
     console.log(`Logged in User: ${username}!`);
 
-    let users = JSON.parse(localStorage.getItem("users"));
     let id = users.find(users => users.username === username).userId;
     console.log(id);
     localStorage.setItem('currentId', id.toString());
@@ -76,30 +75,11 @@ export class RegistrationService {
     if (nameTaken){
       console.log(`This username "${u}" has already been taken!`);
       return;
-<<<<<<< HEAD
-=======
 
->>>>>>> ffbd3f7c080e34f322e2e2c21fbc990e06995a5d
     }
     console.log(`Registed username "${u}" !`);
 
     // increments nextId then creates new user
-<<<<<<< HEAD
-    nextId++
-    let newUser = {
-      username: u,
-      userId: nextId, 
-      password: p,
-      email: e,
-      nickname: n,
-    }
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem('nextId', nextId.toString());
-    this.playlistService.addUserId(nextId);
-    this.router.navigate(['login']);
-=======
->>>>>>> ffbd3f7c080e34f322e2e2c21fbc990e06995a5d
 
     };
 
