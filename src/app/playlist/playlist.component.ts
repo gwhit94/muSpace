@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class PlaylistComponent implements OnInit {
 
+  songs:Array<Object> = [];
+
   constructor(private PlaylistService : PlaylistService,
               private deezerService: deezerService) { }
 
@@ -18,13 +20,8 @@ export class PlaylistComponent implements OnInit {
     
     let playlists = this.PlaylistService.getPlaylists()
     console.log(playlists);
-    let songs: Array<{}> = playlists.favorites;
-    console.log(songs);
-
-    
-    
-
+    this.songs = playlists.favorites;
+    console.log(this.songs);
     }
-
 }
 

@@ -82,7 +82,7 @@ export class SearchComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
-  addSong(id,title, artist,album,preview) {
-    this.playlistService.addSong(id,title, artist,album,preview);
+  addSong(id,title, artist,album,preview, cover) {
+    this.playlistService.addSong(id,title, artist,album,preview, cover);
   }
 }

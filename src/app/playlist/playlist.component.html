@@ -4,10 +4,11 @@
     <source src="" type="audio/mpeg">
   Your browser does not support the audio element.
   </audio>  -->
+<div class = "body">
 
   <div class="playlistSongs" *ngFor = "let song of songs">
     <div style="margin-left: 10px;">
-      <div class = subContainer>
+      <div class = "subContainer">
         <p>Song:    {{ song.title }}</p>
         <p>Artist:  {{ song.artist }}</p>
         <p>Album:   {{ song.album }}</p> 
@@ -19,3 +20,9 @@
         </audio>
 
       </div>
+
+      <img class="albumCover" [src]="song.cover">
+
+  </div>
+ 
+  </div>

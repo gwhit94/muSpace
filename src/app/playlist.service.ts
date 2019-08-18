@@ -37,7 +37,7 @@ export class PlaylistService {
   
       getPlaylists(){
         let id: number = Number(localStorage.getItem("currentId"));
-        // console.log(id);
+        console.log(id);
         let usersPlaylists = JSON.parse(localStorage.getItem("userPlaylists")); 
         // console.log(usersPlaylists);
         let currentplaylists = usersPlaylists.find(users => users.userId === id).playlists;
@@ -55,9 +55,9 @@ export class PlaylistService {
         localStorage.setItem("userPlaylists", JSON.stringify(newUserPlaylists));
       }
 
-      addSong(id,title, artist,album,preview){
+      addSong(id,title, artist,album,preview,cover){
 
-        let songId = {id: id, title: title, artist: artist, album : album, preview: preview}
+        let songId = {id: id, title: title, artist: artist, album : album, preview: preview,cover}
         console.log("double woot", songId)
         let userId: number = Number(localStorage.getItem("currentId"));
         let usersPlaylists = JSON.parse(localStorage.getItem("userPlaylists")); 
