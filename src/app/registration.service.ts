@@ -11,18 +11,7 @@ import { PlaylistService } from './playlist.service';
 export class RegistrationService {
   private authenticated: boolean = false;
 
-  constructor(private router: Router, private playlistService: PlaylistService) {
-    // creates a default user
-    let newUser = [{
-      username: "username",
-      userId: 1, 
-      password: "password",
-      email: "username@gmail.com",
-      nickname: "User"
-      }];
-    localStorage.setItem('users', JSON.stringify(newUser));
-    localStorage.setItem('nextId', "1");
-   }
+  constructor(private router: Router, private playlistService: PlaylistService) { }
   
  
   loginUser(username, password){
@@ -42,8 +31,12 @@ export class RegistrationService {
     };
     this.authenticated = true;
     console.log(users);
+    let id = users.find(users => users.username === username).userId;
+    console.log(id);
+    localStorage.setItem('currentId', id.toString());
     console.log(`Logged in User: ${username}!`);
     this.router.navigate(['playlists']);
+
   }
   // // Need to setup a logged in user state to be cleared on logout and provide nickname etc. when asked
 
@@ -55,10 +48,22 @@ export class RegistrationService {
 
   // u = username, p = password, e = email, n = nickname
   signUpUser(u, p, e, n){
+    // creates a default user
+    if (JSON.parse(localStorage.getItem("users")) === null){
+      let newUser = [{
+        username: "username",
+        userId: 1, 
+        password: "password",
+        email: "username@gmail.com",
+        nickname: "User"
+        }];
+      localStorage.setItem('users', JSON.stringify(newUser));
+      localStorage.setItem('nextId', "1");
+    }
+
     let users = JSON.parse(localStorage.getItem("users"));
     let nextId = parseInt(localStorage.getItem("nextId"));
-    console.log(u, p, e, n);
-
+    
     // exit sign up if username taken
     let nameTaken: boolean;
     nameTaken = false;
